@@ -292,7 +292,7 @@ module.exports = {
 The elm loader is going to transpile the .elm files into .js before webpack does its bundling magic. 
 Under the hood webpack uses *elm make* just like we did above. We could skip using the loader if we 
 wanted to manually make the elm files every time, but webpack automates it for us now.
-webpack dev server
+
 
 If you run *webpack* now, you'll see the bundle file get created in /dist, but when you run electron 
 you won't see the "Hello Electron. I'm Elm." text. The reason is because the html file that electron 
