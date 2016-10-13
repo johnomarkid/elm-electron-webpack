@@ -357,7 +357,7 @@ module.exports = {
 }
 ```
 
-All I did here was add `publicPath: '/assets/'. That tells webpack-dev-server to make bundle.js 
+All I did here was add `publicPath: '/assets/'`. That tells webpack-dev-server to make bundle.js 
 available at `http://localhost:8080/assets/bundle.js` instead of in your /dist directory. Let's 
 see if that is indeed the case. First we need to update our html file to search for the bundle 
 file on the server rather than in /dist.
