@@ -257,7 +257,7 @@ var app = Elm.Main.embed(container);
 ```
 
 This code is mostly the same except you need to require the Main.elm file directly. Run *webpack* 
-and see what happens. *Error: cannot resolve ... elm/Main ...* or something like that. What its 
+and see what happens. *Error: cannot resolve ... elm/Main ...* or something like that. What it's 
 saying is that webpack doesn't know how to consume an Elm file. We need a loader to convert the 
 Elm file to a js file. 
 
