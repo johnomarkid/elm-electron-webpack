@@ -17,10 +17,10 @@ let's put your project files in a folder called Project-Name: `mkdir Project-Nam
 Now let's make a few files and folders. 
 
 ```
-cd Project-Name
-touch README.md webpack.config.js 
-mkdir src src/elm src/static
-npm init
+$ cd Project-Name
+$ touch README.md webpack.config.js 
+$ mkdir src src/elm src/static
+$ npm init
 ```
 
 After `npm init` you'll be presented with a few questions about the project. Answer them or keep pressing enter. Now 
@@ -38,7 +38,7 @@ be using Elm yet.
 First make sure electron is globally installed.
 
 ```
-npm install -g electron-prebuilt
+$ npm install -g electron-prebuilt
 ```
 
 Electron has a Main process and a Renderer process. You can think of the Main process as the code that interacts with the 
@@ -48,7 +48,7 @@ the user interacts with. You can send data between processes using [ipc](http://
 Let's create two files to see this in action.
 
 ```
-touch main.js src/static/index.html
+$ touch main.js src/static/index.html
 ```
 
 Fill in the index.html file with text that shows you that this is working.
@@ -116,7 +116,7 @@ create other application lifecycle methods. Notice the line:
 That's where we tell our electron app to load the html file we created earlier. 
 
 ```
-electron main.js
+$ electron main.js
 ```  
 
 Glorious.
@@ -131,7 +131,7 @@ Now for the fun part. Here's how this goes when electron isn't in the picture.
 That's still the general flow. Let's do this for real.
 
 ```
-touch src/elm/Main.elm
+$ touch src/elm/Main.elm
 ``` 
 
 Finally some Elm code.
@@ -149,7 +149,7 @@ main =
 Now let's turn this Elm code into javascript. Elm will also install some packages.
 
 ```
-elm make src/elm/Main.elm --output src/static/bundle.js 
+$ elm make src/elm/Main.elm --output src/static/bundle.js 
 ```
 
 The output file, bundle.js, is being put into the static folder. This is temporary for convenience.
@@ -223,9 +223,9 @@ an index.js file because as I mentioned earlier, webpack can only consume js. It
 file unless we convert that to js with a loader.
 
 ```
-mkdir dist
-touch src/static/index.js
-rm src/static/bundle.js
+$ mkdir dist
+$ touch src/static/index.js
+$ rm src/static/bundle.js
 ```
 
 I removed the bundle.js file we created earlier. That will no longer be used because we are 
