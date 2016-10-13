@@ -384,7 +384,7 @@ $ webpack-dev-server --content-base /dist
 
 This is just telling webpack-dev-server to watch the files in /dist. Open electron again and you will see
 the same text from the .elm file as we saw before. If you change that text you'll see a lot of output in your 
-terminal. That is just webpack at work recreating your bundle.js. Reload the electron browser to see things updated.
+terminal. That is webpack at work recreating your bundle.js. Reload the electron browser to see things updated.
 
 That's really cool! But the browser should automatically refresh on save, right? Right.
 
