@@ -2,9 +2,10 @@
   "name": "elm-electron-webpack",
   "version": "1.0.0",
   "description": "A guide, not a template, for building electron apps with elm and webpack.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --content-base /dist"
   },
   "keywords": [
     "elm",

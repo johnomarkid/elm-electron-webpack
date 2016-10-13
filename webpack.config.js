@@ -2,6 +2,7 @@ module.exports = {
     entry: './src/static/index.js',
     output: {
         path: './dist',
+        publicPath: '/assets/',
         filename: 'bundle.js'
     },
     module: {
@@ -15,5 +16,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.elm']
-    }
+    },
+    devServer: { inline: true }
 }

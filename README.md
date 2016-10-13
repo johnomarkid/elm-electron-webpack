@@ -1,7 +1,6 @@
-* Electron
-* Elm
-* webpack
-* hot reloading
+[Elm](http://elm-lang.org/) is a really cool functional programming language used for front end development. Use it to build
+cross platform desktop apps with [Electron](http://electron.atom.io/) and [Webpack](https://webpack.github.io/).
+
 
 # A guide, not a template
 You can find starter templates for a lot of frameworks in the javascript ecosystem. They aren't helpful. 
@@ -320,11 +319,108 @@ Here's an overview:
 - New js files are consumed by webpack and turned into one file, bundle.js 
 - Electron opens our index.html file, which imports the new bundle.js 
 
+# Webpack dev server
+
+That's a solid workflow, but things can get even cooler. Instead of running webpack and electron every
+time there's a change, what if changes could be automatically injected into your electron window (which 
+is really just a chrome browser window) every time you save your code?
+
+Install 
+
+```
+$ npm install webpack-dev-server
+```
+
+Webpack-dev-server helps us do just that. It creates a node.js express server, and that allows us to watch 
+for files changes and serve. Edit the webpack.config.js file:
+
+```
+module.exports = {
+    entry: './src/static/index.js',
+    output: {
+        path: './dist',
+        publicPath: '/assets/',
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [
+            {
+                test:    /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                loader:  'elm-webpack?verbose=true&warn=true',
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.elm']
+    }
+}
+```
+
+All I did here was add `publicPath: '/assets/'. That tells webpack-dev-server to make bundle.js 
+available at `http://localhost:8080/assets/bundle.js` instead of in your /dist directory. Let's 
+see if that is indeed the case. First we need to update our html file to search for the bundle 
+file on the server rather than in /dist.
+
+```
+<html>
+	
+  <head>
+   <title>This title shows at the top</title>
+  </head>
+
+  <body>
+    <div id='container'></div>
+    <!--<script src='../../dist/bundle.js'></script>-->
+    <script src='http://localhost:8080/assets/bundle.js'></script>
+</html>
+``` 
+
+Now run webpack-dev-server
+
+```
+$ webpack-dev-server --content-base /dist
+```
+
+This is just telling webpack-dev-server to watch the files in /dist. Open electron again and you will see
+the same text from the .elm file as we saw before. If you change that text you'll see a lot of output in your 
+terminal. That is just webpack at work recreating your bundle.js. Reload the electron browser to see things updated.
+
+That's really cool! But the browser should automatically refresh on save, right? Right.
+
+Simply add `devServer: { inline: true }` to your webpack.config.js file.
+
+```
+module.exports = {
+    entry: './src/static/index.js',
+    output: {
+        path: './dist',
+        publicPath: '/assets/',
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [
+            {
+                test:    /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                loader:  'elm-webpack?verbose=true&warn=true',
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.elm']
+    },
+    devServer: { inline: true }
+}
+```
+
+And run `webpack-dev-server --content-base /dist` again. Now when you make changes in Main.elm webpack 
+will recompile everything and refresh the browser.
+
+This is a very good development setup. You may want to exlore [hot module replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it)
+so only the components you change are refreshed, not the entire page. I'll leave that to you... for now.
 
 
-// add $ to commands
-
-
-
-
-
+# About me
+I'm [John Omar](http://johnomar.com/). I really like Elm, so I decided to make some beginner friendly tutorials to get more 
+people using it. Hit me up on [twitter](twitter.com/johnomarkid) if you need help.
