@@ -423,4 +423,4 @@ so only the components you change are refreshed, not the entire page. I'll leave
 
 # About me
 I'm [John Omar](http://johnomar.com/). I really like Elm, so I decided to make some beginner friendly tutorials to get more 
-people using it. Hit me up on [twitter](twitter.com/johnomarkid) if you need help.
+people using it. Hit me up on [twitter](https://twitter.com/johnomarkid) if you need help.
