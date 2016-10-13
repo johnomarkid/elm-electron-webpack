@@ -417,7 +417,7 @@ module.exports = {
 And run `webpack-dev-server --content-base /dist` again. Now when you make changes in Main.elm webpack 
 will recompile everything and refresh the browser.
 
-This is a very good development setup. You may want to exlore [hot module replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it)
+This is a very good development setup. You may want to explore [hot module replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it)
 so only the components you change are refreshed, not the entire page. I'll leave that to you... for now.
 
 
