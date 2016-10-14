@@ -179,7 +179,7 @@ Edit the index.html file to import the new bundle.js file and embed it into a di
 Here you are grabbing the container div and embedding the javascript code in there. Elm automatically
 creates the Main.embed function during transpilation. 
 
-A few more housekeeping items before we see this in action. Run
+A few more housekeeping items before we see this in action. 
 
 When you ran `elm make` some Elm packages were downloaded and an elm-package.json file was created.
 All is good, except elm doesn't know where to look for your elm files. Update the elm-package.json source-directories 
