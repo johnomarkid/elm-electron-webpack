@@ -53,7 +53,7 @@ $ touch main.js src/static/index.html
 
 Fill in the index.html file with text that shows you that this is working.
 
-```
+```html
 <html>
 	
   <head>
@@ -68,7 +68,7 @@ Fill in the index.html file with text that shows you that this is working.
 
 And now the main.js file.
 
-```
+```js
 'use strict'
 const electron = require('electron')
 
@@ -136,7 +136,7 @@ $ touch src/elm/Main.elm
 
 Finally some Elm code.
 
-```
+```elm
 module Main exposing (..)
 
 import Html exposing (text)
@@ -158,7 +158,7 @@ decisions, but not all, are driven by laziness. But only when quality isn't at s
 
 Edit the index.html file to import the new bundle.js file and embed it into a div.
 
-```
+```html
 <html>
 	
   <head>
@@ -185,7 +185,7 @@ When you ran `elm make` some Elm packages were downloaded and an elm-package.jso
 All is good, except elm doesn't know where to look for your elm files. Update the elm-package.json source-directories 
 to point to the location of your elm files.
 
-```
+```json
 "source-directories": [
     "src/elm"
 ],
@@ -233,7 +233,7 @@ going to use the one that webpack makes in /dist/bundle.js.
 
 And now edit the webpack.config.js file.
 
-```
+```js
 module.exports = {
     entry: './src/static/index.js',
     output: {
@@ -250,7 +250,7 @@ file, do its magic, and then export a file named bundle.js to the /dist director
 Our index.js file is empty right now. It should include the javascript we used to embed Elm into 
 the div. Remove that js from the html file and put it in index.js like so.
 
-```
+```js
 var Elm = require('../elm/Main');
 var container = document.getElementById('container');
 var app = Elm.Main.embed(container);
@@ -267,7 +267,7 @@ $ npm install --save elm-webpack-loader
 
 And now configure webpack to use the loader.
 
-```
+```js
 module.exports = {
     entry: './src/static/index.js',
     output: {
@@ -299,7 +299,7 @@ you won't see the "Hello Electron. I'm Elm." text. The reason is because the htm
 is running is not importing the new bundle.js file. In fact, it's not importing anything. Let's change 
 that.
 
-```
+```html
 <html>
 	
   <head>
@@ -334,7 +334,7 @@ $ npm install webpack-dev-server
 Webpack-dev-server helps us do just that. It creates a node.js express server, and that allows us to watch 
 for files changes and serve. Edit the webpack.config.js file:
 
-```
+```js
 module.exports = {
     entry: './src/static/index.js',
     output: {
@@ -362,7 +362,7 @@ available at `http://localhost:8080/assets/bundle.js` instead of in your /dist d
 see if that is indeed the case. First we need to update our html file to search for the bundle 
 file on the server rather than in /dist.
 
-```
+```html
 <html>
 	
   <head>
@@ -390,7 +390,7 @@ That's really cool! But the browser should automatically refresh on save, right?
 
 Simply add `devServer: { inline: true }` to your webpack.config.js file.
 
-```
+```js
 module.exports = {
     entry: './src/static/index.js',
     output: {
