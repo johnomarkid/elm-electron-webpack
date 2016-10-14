@@ -125,7 +125,7 @@ Glorious.
 Now for the fun part. Here's how this goes when electron isn't in the picture.
 
 - write some elm code
-- run `elm make Main.elm --output bundle.js` which transpiles the elm code into javascript 
+- run `elm make Main.elm --output bundle.js` which compiles the elm code into javascript 
 - import bundle.js into javascript and embed it into a div in your html.
 
 That's still the general flow. Let's do this for real.
@@ -177,7 +177,7 @@ Edit the index.html file to import the new bundle.js file and embed it into a di
 ```
 
 Here you are grabbing the container div and embedding the javascript code in there. Elm automatically
-creates the Main.embed function during transpilation. 
+creates the Main.embed function during compilation. 
 
 A few more housekeeping items before we see this in action. 
 
@@ -194,7 +194,7 @@ to point to the location of your elm files.
 Run `electron main.js` and you'll see "Hello Electron. I'm Elm."
 
 This setup is all you need to build electron apps in Elm. However, you'll be missing out on some of the 
-latest and greatest web dev tools like hot reloading and automatic transpilation. That's where webpack
+latest and greatest web dev tools like hot reloading and automatic compilation. That's where webpack
 comes in.
 
 # Webpack 
@@ -289,7 +289,7 @@ module.exports = {
 }
 ```
 
-The elm loader is going to transpile the .elm files into .js before webpack does its bundling magic. 
+The elm loader is going to compile the .elm files into .js before webpack does its bundling magic. 
 Under the hood webpack uses *elm make* just like we did above. We could skip using the loader if we 
 wanted to manually make the elm files every time, but webpack automates it for us now.
 
