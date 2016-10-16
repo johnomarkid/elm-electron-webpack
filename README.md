@@ -38,7 +38,7 @@ be using Elm yet.
 First make sure electron is globally installed.
 
 ```
-$ npm install -g electron-prebuilt
+$ sudo npm install -g electron
 ```
 
 Electron has a Main process and a Renderer process. You can think of the Main process as the code that interacts with the 
