@@ -146,7 +146,13 @@ main =
     text "Hello Electron. I'm Elm."
 ```
 
-Now let's turn this Elm code into javascript. Elm will also install some packages.
+Now let's turn this Elm code into javascript. 
+First, install elm package using:
+
+```
+sudo npm install -g elm
+```
+Once installed, issue "elm make" command below that will turn the Elm code into javascript. Elm will also install some packages.
 
 ```
 $ elm make src/elm/Main.elm --output src/static/bundle.js 
