@@ -1,3 +1,5 @@
+*Updated to Elm 0.18*
+
 [Elm](http://elm-lang.org/) is a really cool functional programming language used for front end development. Use it to build
 cross platform desktop apps with [Electron](http://electron.atom.io/) and [Webpack](https://webpack.github.io/).
 
