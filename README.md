@@ -381,6 +381,7 @@ file on the server rather than in /dist.
     <div id='container'></div>
     <!--<script src='../../dist/bundle.js'></script>-->
     <script src='http://localhost:8080/assets/bundle.js'></script>
+  </body>
 </html>
 ``` 
 
