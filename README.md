@@ -279,7 +279,7 @@ And now configure webpack to use the loader.
 module.exports = {
     entry: './src/static/index.js',
     output: {
-        path: './dist',
+        path: '__dirname'+'/dist',
         filename: 'bundle.js'
     },
     module: {
@@ -287,12 +287,12 @@ module.exports = {
             {
                 test:    /\.elm$/,
                 exclude: [/elm-stuff/, /node_modules/],
-                loader:  'elm-webpack?verbose=true&warn=true',
+                loader:  'elm-webpack-loader?verbose=true&warn=true',
             }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.elm']
+        extensions: ['.js', '.elm']
     }
 }
 ```
