@@ -178,14 +178,15 @@ Edit the index.html file to import the new bundle.js file and embed it into a di
     <script src="bundle.js"></script>
     <script>
         var Elm = require('./bundle.js');
-        var container = document.getElementById('container');
-        var app = Elm.Main.embed(container);
+        var app = Elm.Elm.Main.init({
+            node: document.getElementById('container')
+        });
     </script>
 </html>
 ```
 
 Here you are grabbing the container div and embedding the javascript code in there. Elm automatically
-creates the Main.embed function during compilation. 
+creates the Main.init function during compilation. 
 
 A few more housekeeping items before we see this in action. 
 
