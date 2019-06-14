@@ -127,6 +127,10 @@ Glorious.
 Now for the fun part. Here's how this goes when electron isn't in the picture.
 
 - write some elm code
+- run `elm init`
+    - elm will ask you to create a `elm.json` file which contains the package
+      defintion for your package. All options should be self-explanatory and you
+      do not need to think about this until later.
 - run `elm make Main.elm --output bundle.js` which compiles the elm code into javascript 
 - import bundle.js into javascript and embed it into a div in your html.
 
