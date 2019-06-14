@@ -84,8 +84,11 @@ app.on('ready', createWindow) // called when electron has initialized
 // This will create our app window, no surprise there
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1024, 
-    height: 768
+    width: 1024,
+    height: 768,
+    webPreferencs: {
+      nodeIntegration: true
+    }
   })
 
   // display the index.html file
